@@ -40,7 +40,7 @@ public class simonRemembersScript : MonoBehaviour {
         random = UnityEngine.Random.Range(0, 4);
         lights[random].enabled = true;
         sequence.Add(random);
-        Debug.LogFormat("[Simon's Sequence #{0}] Expected Sequence: {1}", moduleId, sequence.Select(x => "BYRG"[x]).Join(""));
+        Debug.LogFormat("[Simon's Sequence #{0}] Sequence: {1}", moduleId, sequence.Select(x => "BYRG"[x]).Join(""));
         lenght2++;
         currentInt = 0;
     }
@@ -53,7 +53,7 @@ public class simonRemembersScript : MonoBehaviour {
         currentInt = 0;
         addseconds = 0;
         needy.HandleStrike();
-        Debug.LogFormat("[Simon's Sequence #{0}] The counter expired before the expected sequence was received", moduleId);
+        Debug.LogFormat("[Simon's Sequence #{0}] The counter expired before the sequence was received", moduleId);
     }
     void bp(KMSelectable key)
     {
@@ -74,7 +74,7 @@ public class simonRemembersScript : MonoBehaviour {
         if (currentInt == lenght2)
         {
             needy.OnPass();
-            Debug.LogFormat("[Simon's Sequence #{0}] Expected sequence received", moduleId);
+            Debug.LogFormat("[Simon's Sequence #{0}] Sequence received", moduleId);
             lights[random].enabled = false;
             addseconds += 3;
         }
